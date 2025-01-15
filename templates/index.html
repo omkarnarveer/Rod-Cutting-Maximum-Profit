@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rod Cutting Problem - Dynamic Input</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Rod Cutting Problem</h1>
+    <p class="text-center">Enter the prices for the rod pieces and the rod length. Prices should be comma-separated.</p>
+
+    <!-- Form to input prices and rod length -->
+    <form method="POST">
+        <div class="form-group">
+            <label for="prices">Enter prices for rod lengths (comma-separated):</label>
+            <input type="text" class="form-control" id="prices" name="prices" placeholder="1,5,8,9,10,17,17,20,24,30" required>
+        </div>
+
+        <div class="form-group">
+            <label for="length">Enter rod length:</label>
+            <input type="number" class="form-control" id="length" name="length" value="10" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Calculate Maximum Revenue</button>
+    </form>
+
+    {% if rod_cutting_image_url %}
+    <hr>
+    <h2 class="text-center">Results for Rod Length: {{ length }}</h2>
+    <p class="text-center">Maximum Revenue: <strong>${{ max_revenue }}</strong></p>
+
+    <p class="text-center">The optimal cuts are: <strong>{{ cut_lengths }}</strong></p>
+
+    <h3 class="text-center">Rod Cutting Diagram</h3>
+    <div class="text-center">
+        <img src="data:image/png;base64,{{ rod_cutting_image_url }}" alt="Rod Cutting Diagram" class="img-fluid">
+    </div>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS and Popper.js (Optional for certain components like dropdowns, modals, etc.) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
